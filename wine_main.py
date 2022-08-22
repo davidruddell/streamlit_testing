@@ -5,13 +5,20 @@ import sys
 import os
 
 st.title('WINE!!!')
+st.subheader('testing streamlit features')
 st.image('https://images.ctfassets.net/8x8155mjsjdj/1af9dvSFEPGCzaKvs8XQ5O/a7d4adc8f9573183394ef2853afeb0b6/Copy_of_Red_Wine_Blog_Post_Header.png')
 
 st.slider('HOW MUCH DO YOU ENJOY WINE?', min_value=0, max_value=10)
+st.date_input('Your birthday')
 
 df = pd.read_csv('winemag-data_first150k.csv', usecols = ['country','points','price'])
-#print(df)
+
+st.code('for i in range(8): foo()')
+
 st.dataframe(df)
+
+with st.sidebar:
+   st.radio('Select one:', ['Red Wines', 'White Wines'])
 
 df_us = pd.DataFrame()
 
@@ -27,6 +34,5 @@ for i in df.iloc[:, 0]:
             })
         df_us = pd.concat([df_us, df_us_newrow], ignore_index=True)
     i_pos += 1
-
-print(df_us)
 st.dataframe(df_us)
+print(df_us) #to the terminal
