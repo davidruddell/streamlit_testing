@@ -15,6 +15,8 @@ df = pd.read_csv('winemag-data_first150k.csv', usecols = ['country','points','pr
 
 st.code('for i in range(8): foo()')
 
+st.info('Red wine best wine')
+
 st.dataframe(df)
 
 with st.sidebar:
@@ -32,7 +34,7 @@ for i in df.iloc[:, 0]:
                 'points' : [df.iloc[i_pos]['points']],
                 'price' : [df.iloc[i_pos]['price']],
             })
-        df_us = pd.concat([df_us, df_us_newrow], ignore_index=True)
+            df_us = pd.concat([df_us, df_us_newrow], ignore_index=True)
     i_pos += 1
 st.dataframe(df_us)
 print(df_us) #to the terminal
